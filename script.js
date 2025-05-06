@@ -5,8 +5,12 @@ const tbody = document.querySelector("tbody");
 let listaNomeENota = [];
 
 document.addEventListener("submit", (event) => {
-    event.preventDefault()
-    console.log("deu certo")
+    event.preventDefault();
+//    if(!nameInput.value || isNaN(notaInput.value) || notaInput.value == ""){
+//        alert("Dados Inválidos!");
+//        return;
+//    }
+//    console.log("deu certo")
     listaNomeENota.push({ name: nameInput.value, nota: notaInput.value },);
     renderizarMensagem(listaNomeENota);
 })

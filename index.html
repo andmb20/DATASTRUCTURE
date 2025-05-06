@@ -41,9 +41,27 @@
             <fieldset style="display: inline-block;">
                 <legend>Adicione um Nome e uma Nota</legend>
                 <label for="name">Nome:</label>
-                <input type="text" id="name" placeholder="Nome">
+                <!-- 
+                    verifica se a entrada contém apenas letras e espaços, mas impede que seja apenas espaços em branco.
+                    ^ -> Indica o início da string.
+                    (?!\s+$) é um lookahead negativo, que impede que a string seja composta apenas por espaços. 
+                    [A-Za-z\s]+$ ->
+                    [A-Za-z] -> Permite apenas letras maiúsculas (A-Z) e minúsculas (a-z).
+                    \s -> Permite espaços em branco.
+                    + -> Exige pelo menos um caractere válido.
+                    $ -> Indica que a verificação vai até o final da string.
+                -->
+                <input type="text" id="name" pattern="^(?!\s+$)[A-Za-z\s]+$" placeholder="Nome" required>
                 <label for="nota">Nota:</label>
-                <input type="float" id="nota" placeholder="Nota">
+                <!--
+                    verifica se a entrada contém apenas números
+                    ^\d+$ -> Esta expressão regular significa:
+                    ^ -> Indica o início da string.
+                    \d -> Aceita apenas números (dígitos de 0 a 9).
+                    + -> Exige pelo menos um número.
+                    $ -> Indica que a string deve terminar com um número.
+                -->
+                <input type="float" id="nota" pattern="^\d+$" placeholder="Nota" required>
                 <button type="submit">Enviar</button>
             </fieldset>
         </form>
