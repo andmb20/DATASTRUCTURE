@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <script src="array.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Array</h1>
+    <p><i>"Array é uma coleção de elementos ordenada, acessíveis por índice, armazenados em memória contígua (que estão
+            um ao lado do outro)."</i></p>
+    <p style="font-size: 20px;">Um <b>array</b> é uma <b>estrutura de dados linear</b> que armazena elementos do
+        <b>mesmo tipo</b> (homogêneos) ou de <b>tipos diferentes</b> (heterogêneos, dependendo da linguagem) em
+        <b>posições contíguas de memória</b>, acessíveis por um <b>índice numérico</b>.
+    </p>
+    <ol>
+        <h2>Características Principais</h2>
+        <li>Coleção Ordenada</li>
+        <p>Os elementos têm uma ordem definida (índices começando em 0 ou 1, dependendo da linguagem).</p>
+        <li>Acesso Direto por Índice</li>
+        <p>Permite acesso rápido a qualquer elemento em O(1) (tempo constante).</p>
+        <p>Ex.: <code>array[3]</code> retorna o 4º elemento.</p>
+        <li>Tamanho Fixo ou Dinâmico</li>
+        <p>
+            Estático: Tamanho definido na criação (ex.: em C, int vetor[10];).</p>
+        <p>
+            Dinâmico: Cresce/shrink conforme necessário (ex.: em JavaScript/Python).</p>
+        <li>Uso Eficiente de Memória</li>
+        <p>
+            Elementos são armazenados em blocos contíguos, facilitando iteração e cache da CPU.</p>
+
+        <li>Operações Básicas</li>
+        <p>
+            Inserção, remoção, busca, ordenação (cada uma com sua complexidade, como vimos antes).</p>
+    </ol>
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript (Array dinâmico e heterogêneo)<br>
+        let arrayJS = [1, "texto", true]; <br>
+        console.log(arrayJS[1]); // "texto"</code><br><br>
+        <code># Python (List = Array dinâmico)<br>
+        lista = [10, 20, 30] <br>
+        lista.append(40)  # Adiciona no final</code><br><br>
+        <code>// C (Array estático e homogêneo) <br>
+        int vetor[5] = {1, 2, 3, 4, 5}; <br>
+        printf("%d", vetor[2]); // 3</code> <br><br>
+    </section>
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo em JavaScript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Acesso por índice</td>
+                <td>O(1)</td>
+                <td><code>array[2]</code></td>
+            </tr>
+            <tr>
+                <td>Inserir no final</td>
+                <td>O(1)*</td>
+                <td><code>array.push("item")</code></td>
+            </tr>
+            <tr>
+                <td>Inserir no início</td>
+                <td>O(n)</td>
+                <td><code>array.unshift("item")</code></td>
+            </tr>
+            <tr>
+                <td>Remover do final</td>
+                <td>O(1)</td>
+                <td><code>array.pop()</code></td>
+            </tr>
+            <tr>
+                <td>Remover do início</td>
+                <td>O(n)</td>
+                <td><code>array.shift()</code></td>
+            </tr>
+            <tr>
+                <td>Buscar por valor</td>
+                <td>O(n)</td>
+                <td><code>array.indexOf("item")</code></td>
+            </tr>
+            <tr>
+                <td>Ordenar</td>
+                <td>O(n log n)</td>
+                <td><code>array.sort()</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><b>*Obs</b>: Em linguagens com arrays dinâmicos (JavaScript/Python), push é geralmente O(1), mas pode ser O(n) se
+        o array precisar ser realocado na memória.</p><br>
+    <ul>
+        <h2>Quando Usar Arrays?</h2>
+        <h3>Use arrays quando:</h3>
+        <li>Você precisa de acesso rápido por índice (ex.: <code>lista[3])</code>.</li>
+        <li>A ordem dos elementos é importante.</li>
+        <li>Exemplos clássicos:</li>
+        <ul>
+
+            <li>Lista de alunos em uma turma.</li>
+            <li>Pixels de uma imagem (matriz = array 2D).</li>
+            <li>Buffer de dados sequenciais</li>
+
+        </ul>
+    </ul>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3> Pense em um array como uma prateleira de livros:</h3>
+        <li> Cada livro tem um número de posição fixo (índice).</li>
+        <li>Você pode pegar o livro diretamente se souber sua posição.</li>
+        <li> Adicionar/remover livros no meio exige reorganização (O(n)).</li>
+    </ul>
+    <ul>
+        <h2>Quando NÃO Usar Arrays?</h2>
+        <li> Quando precisar de inserções/remoções frequentes no meio (use listas ligadas).</li>
+        <li> Quando a ordem não importa e quer elementos únicos (use sets).</li>
+        <li>Quando precisa de mapeamento chave-valor (use dicionários).</li>
+    </ul>
+
+
+</body>
+
+</html>
