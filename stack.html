@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This repository is dedicated to studying stack data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Pilha (Stack)</title>
+    <script src="stack.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Pilha (Stack)</h1>
+    <p><i>"Pilha é como uma pilha de pratos: o último que entra é o primeiro que sai!"</i></p>
+    <p style="font-size: 20px;">Uma <b>pilha (stack)</b> é uma estrutura de dados linear que segue o princípio <b>LIFO
+            (Last In, First Out)</b>, onde o último elemento adicionado é o primeiro a ser removido.</p>
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>LIFO</b>: Último elemento inserido é o primeiro a ser removido.</li>
+        <li><b>Operações Básicas</b>:</li>
+        <ul>
+            <li><code>push()</code>: Adiciona um elemento no topo.</li>
+            <li><code>pop()</code>: Remove o elemento do topo.</li>
+            <li><code>peek()</code>(ou <code>top()</code>): Retorna o elemento do topo sem remover.</li>
+        </ul>
+        <li><b>Tamanho Dinâmico</b>: Cresce ou reduz conforme elementos são adicionados/removidos.</li>
+        <li><b>Acesso Restrito</b>: Só o elemento do topo é acessível diretamente.</li>
+    </ol>
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript (usando array como pilha)<br>
+            let stack = [];<br>
+            stack.push(1); // [1]<br>
+            stack.push(2); // [1, 2]<br>
+            stack.pop();   // Remove 2 → [1]<br>
+        </code><br><br>
+        <code># Python (usando list)<br>
+            stack = []<br>
+            stack.append(3)  # [3]<br>
+            stack.append(4)  # [3, 4]<br>
+            stack.pop()      # Remove 4 → [3]
+        </code><br><br>
+        <code>
+            // Java (Stack classe)<br>
+            Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();<br>
+            stack.push(5);  // [5]<br>
+            stack.peek();   // 5<br>
+        </code><br><br>
+    </section>
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo em JavaScript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>push()</td>
+                <td>O(1)</td>
+                <td><code>stack.push(10)</code></td>
+            </tr>
+            <tr>
+                <td>pop()</td>
+                <td>O(1)</td>
+                <td><code>stack.pop()</code></td>
+            </tr>
+            <tr>
+                <td>peek()</td>
+                <td>O(1)</td>
+                <td><code>stack.peek()</code></td>
+            </tr>
+            <tr>
+                <td>isEmpty()</td>
+                <td>O(1)</td>
+                <td><code>stack.isEmpty()</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <h2>Quando Usar Pilhas?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Undo/Redo</b> em editores de texto (última ação é a primeira a ser desfeita).</li>
+        <li><b>Navegação de páginas</b> (voltar/avançar no histórico do navegador).</li>
+        <li><b>Validação de parênteses</b> em expressões matemáticas.</li>
+        <li><b>Algoritmos recursivos</b> (simulação de call stack).</li>
+    </ul>
+    <ol>
+        <h3>Dicas de Uso Avançado</h3>
+        <li><b>Pilhas com Tamanho Fixo</b>:</li>
+        <ul>
+            <li>Evite estouro de memória definindo um limite máximo.</li>
+        </ul>
+        <li><b>Pilhas Múltiplas</b>:</li>
+        <ul>
+            <li>Útil para gerenciar estados em aplicações complexas (ex.: jogos).</li>
+        </ul>
+        <li><b>Pilhas em Algoritmos</b>:</li>
+        <ul>
+            <li><b>DFS (Busca em Profundidade)</b> usa pilha para rastrear nós.</li>
+        </ul>
+    </ol>
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em uma <b>pilha de livros</b>:</h3>
+        <li>Você só pode adicionar ou remover o livro do topo.</li>
+        <li>Para pegar o livro do fundo, precisa remover todos acima!</li>
+    </ul>
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Se precisar de <b>acesso aleatório</b> a elementos (use arrays).</li>
+        <li>Se a ordem de remoção deve ser <b>FIFO (use filas/queues)</b>.</li>
+    </ul>
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>SEMPRE</b> verifique se a pilha está vazia antes de chamar pop() ou peek() para evitar erros!</p>
+
+</body>
+
+</html>

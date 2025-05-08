@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This repository is dedicated to studying arrays, exploring their structure, functionalities, and best practices in programming.">
     <title>Array</title>
     <script src="array.js"></script>
 </head>
@@ -26,29 +27,27 @@
         <p>Permite acesso rápido a qualquer elemento em O(1) (tempo constante).</p>
         <p>Ex.: <code>array[3]</code> retorna o 4º elemento.</p>
         <li>Tamanho Fixo ou Dinâmico</li>
-        <p>
-            Estático: Tamanho definido na criação (ex.: em C, int vetor[10];).</p>
-        <p>
-            Dinâmico: Cresce/shrink conforme necessário (ex.: em JavaScript/Python).</p>
+        <p>Estático: Tamanho definido na criação (ex.: em C, int vetor[10];).</p>
+        <p>Dinâmico: Cresce/shrink conforme necessário (ex.: em JavaScript/Python).</p>
         <li>Uso Eficiente de Memória</li>
-        <p>
-            Elementos são armazenados em blocos contíguos, facilitando iteração e cache da CPU.</p>
-
+        <p>Elementos são armazenados em blocos contíguos, facilitando iteração e cache da CPU.</p>
         <li>Operações Básicas</li>
-        <p>
-            Inserção, remoção, busca, ordenação (cada uma com sua complexidade, como vimos antes).</p>
+        <p>Inserção, remoção, busca, ordenação (cada uma com sua complexidade, como vimos antes).</p>
     </ol>
     <section>
         <h2>Exemplos em Diferentes Linguagens</h2>
         <code>// JavaScript (Array dinâmico e heterogêneo)<br>
         let arrayJS = [1, "texto", true]; <br>
-        console.log(arrayJS[1]); // "texto"</code><br><br>
+        console.log(arrayJS[1]); // "texto"
+        </code><br><br>
         <code># Python (List = Array dinâmico)<br>
         lista = [10, 20, 30] <br>
-        lista.append(40)  # Adiciona no final</code><br><br>
+        lista.append(40)  # Adiciona no final
+        </code><br><br>
         <code>// C (Array estático e homogêneo) <br>
         int vetor[5] = {1, 2, 3, 4, 5}; <br>
-        printf("%d", vetor[2]); // 3</code> <br><br>
+        printf("%d", vetor[2]); // 3
+        </code> <br><br>
     </section>
     <h2>Complexidade das Operações</h2>
     <table border="1">
@@ -106,14 +105,11 @@
         <li>A ordem dos elementos é importante.</li>
         <li>Exemplos clássicos:</li>
         <ul>
-
             <li>Lista de alunos em uma turma.</li>
             <li>Pixels de uma imagem (matriz = array 2D).</li>
             <li>Buffer de dados sequenciais</li>
-
         </ul>
     </ul>
-
     <ul>
         <h2>Analogia Prática</h2>
         <h3> Pense em um array como uma prateleira de livros:</h3>
@@ -127,7 +123,6 @@
         <li> Quando a ordem não importa e quer elementos únicos (use sets).</li>
         <li>Quando precisa de mapeamento chave-valor (use dicionários).</li>
     </ul>
-
 
 </body>
 
