@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying queue data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Fila (Queue)</title>
+    <script src="fila.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Fila (Queue)</h1>
+    <p><i>"Fila é como uma fila de banco: o primeiro que chega é o primeiro a ser atendido (FIFO - First In, First Out)!"</i>🏦</p>
+    <p style="font-size: 20px;">Uma <b>fila (queue)</b> é uma estrutura de dados linear que segue o princípio <b>FIFO (First In, First Out)</b> onde o primeiro elemento adicionado é o primeiro a ser removido.</p>
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>FIFO</b>: Primeiro elemento inserido é o primeiro a sair.</li>
+        <li><b>Operações Básicas</b>:</li>
+        <ul>
+            <li><code>enqueue()</code>: Adiciona um elemento no final.</li>
+            <li><code>dequeue()</code>: Remove o elemento do inicio.</li>
+            <li><code>front()</code>(ou <code>peek()</code>): Retorna o primeiro elemento sem remover.</li>
+        </ul>
+        <li><b>Tamanho Dinâmico</b>: Cresce ou reduz conforme elementos são adicionados/removidos.</li>
+        <li><b>Acesso Restrito</b>: Só o primeiro e último elementos são diretamente acessíveis.</li>
+    </ol>
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript (usando array)<br>
+            let queue = [];<br>
+            queue.push(1); // [1] - enqueue<br>
+            queue.push(2); // [1, 2] - enqueue<br>
+            queue.shift(); // Remove 1 → [2] - dequeue (O(n) - ineficiente!)<br>
+        </code><br><br>
+
+        <code># Python (usando deque para eficiência)<br>
+            from collections import deque<br>
+            queue = deque()<br>
+            queue.append(1)  # [1] - enqueue<br>
+            queue.append(2)  # [1, 2] - enqueue<br>
+            queue.popleft()  # Remove 1 → [2] - dequeue (O(1))<br>
+        </code><br><br>
+
+        <code>// Java (usando Queue interface)<br>
+            Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();<br>
+            queue.add(1); // [1]<br>
+            queue.poll(); // Remove 1 → []<br>
+        </code><br><br>
+    </section>
+
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>enqueue()</td>
+                <td>O(1)</td>
+                <td><code>queue.push(10) (JS)</code></td>
+            </tr>
+            <tr>
+                <td>dequeue()</td>
+                <td>O(1)*</td>
+                <td><code>queue.shift() (JS) ou queue.popleft() (Python)</code></td>
+            </tr>
+            <tr>
+                <td>front()</td>
+                <td>O(1)</td>
+                <td><code>queue[0] (Python)</code></td>
+            </tr>
+            <tr>
+                <td>isEmpty()</td>
+                <td>O(1)</td>
+                <td><code>queue.length === 0 (JS)</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><i>*Obs: Em JavaScript, shift() é O(n) (ineficiente). Use uma lista ligada para O(1).</i></p>
+
+    <ul>
+        <h2>Quando Usar Filas?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Gerenciamento de processos</b> (ex.: impressão em série).</li>
+        <li><b>Breadth-First Search (BFS)</b> em grafos/árvores.</li>
+        <li><b>Buffers de mensagens</b> (ex.: filas de e-mail).</li>
+        <li><b>Simulações de atendimento</b> (supermercados, call centers).</li>
+    </ul>
+
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Filas Circulares:</b></li>
+        <ul>
+            <li>Evitam desperdício de memória em implementações estáticas.</li>
+        </ul>
+        <li><b>Filas de Prioridade:</b></li>
+        <ul>
+            <li>Elementos são ordenados por importância (ex.: hospitais).</li>
+        </ul>
+        <li><b>Filas Duplas (Deque):</b></li>
+        <ul>
+            <li>Permitem inserção/remoção em ambos os lados.</li>
+        </ul>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em uma fila de supermercado:</h3>
+        <li>Quem chega primeiro (<b>enqueue</b>) passa no caixa primeiro (<b>dequeue</b>).</li>
+        <li>Você só sabe quem é o primeiro (e quem acabou de chegar).</li>
+    </ul>
+
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Se precisar de <b>acesso aleatório</b> (use arrays).</li>
+        <li>Se a ordem de remoção deve ser <b>LIFO</b> (use pilhas).</li>
+    </ul>
+
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>NUNCA</b> use shift() em JavaScript para filas grandes (é O(n)). Implemente uma fila otimizada com duas pilhas ou uma lista ligada!</p>
+
+</body>
+
+</html>

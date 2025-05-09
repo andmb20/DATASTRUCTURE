@@ -9,7 +9,7 @@ class Stack {
     // Método para adicionar um elemento à pilha (O(1))
     push(item) {
         this.items.push(item); // Adiciona à pilha principal
-        
+
         // Se a pilha auxiliar estiver vazia ou o novo item for menor ou igual ao topo da minStack, adicionamos a ele também
         if (this.minStack.length === 0 || item <= this.minStack[this.minStack.length - 1]) {
             this.minStack.push(item);
