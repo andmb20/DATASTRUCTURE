@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying linked list data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Lista ligada (Linked List)</title>
+    <script src="linkedlist.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Listas Ligadas (Linked Lists)</h1>
+    <p><i>"Lista ligada é como um trem de vagões: cada vagão (nó) guarda um valor e um link para o próximo!"</i> 🚂</p>
+    <p style="font-size: 20px;">Uma <b>lista ligada (Linked List)</b> é uma estrutura de dados linear onde cada elemento
+        (chamado <b>nó</b>) contém:</p>
+    <ul>
+        <li><b>Um valor</b> (dado armazenado no nó).</li>
+        <li><b>Um ponteiro</b> (referência) para o próximo nó (e, em listas duplamente ligadas, para o anterior).</li>
+    </ul>
+
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>Alocação dinâmica</b>: Os nós são alocados em memória sob demanda.</li>
+        <li><b>Inserções e remoções eficientes</b>: Não requer realocação de elementos como em arrays.</li>
+        <li><b>Acesso sequencial</b>: Para chegar ao nó N, você precisa percorrer todos os anteriores.</li>
+        <li><b>Tipos comuns:</b></li>
+        <ul>
+            <li><b>Simplesmente ligada</b>: Os nós apontam apenas para o próximo elemento.</li>
+            <li><b>Duplamente ligada</b>: Cada nó aponta para o próximo e para o anterior.</li>
+            <li><b>Circular</b>: O último nó aponta para o primeiro, formando um ciclo.</li>
+        </ul>
+    </ol>
+
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript (Classe Node + LinkedList)<br>
+            class Node {<br>
+                constructor(value) {<br>
+                    this.value = value;<br>
+                    this.next = null;<br>
+                }<br>
+            }<br><br>
+
+            class LinkedList {<br>
+                constructor() {<br>
+                    this.head = null;<br>
+                    this.size = 0;<br>
+                }<br>
+
+                append(value) {<br>
+                    const newNode = new Node(value);<br>
+                    if (!this.head) this.head = newNode;<br>
+                    else {<br>
+                        let current = this.head;<br>
+                        while (current.next) current = current.next;<br>
+                        current.next = newNode;<br>
+                    }<br>
+                    this.size++;<br>
+                }<br>
+            }<br>
+
+            const lista = new LinkedList();<br>
+            lista.append(1);<br>
+            lista.append(2);<br>
+        </code><br><br>
+
+        <code># Python (Classe Node + LinkedList)<br>
+            class Node:<br>
+                def __init__(self, value):<br>
+                    self.value = value<br>
+                    self.next = None<br><br>
+
+            class LinkedList:<br>
+                def __init__(self):<br>
+                    self.head = None<br>
+                    self.size = 0<br><br>
+
+                def append(self, value):<br>
+                    new_node = Node(value)<br>
+                    if not self.head:<br>
+                        self.head = new_node<br>
+                    else:<br>
+                        current = self.head<br>
+                        while current.next:<br>
+                            current = current.next<br>
+                        current.next = new_node<br>
+                    self.size += 1<br><br>
+
+            lista = LinkedList()<br>
+            lista.append(1)<br>
+            lista.append(2)<br>
+        </code><br><br>
+    </section>
+
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Inserir no início</td>
+                <td>O(1)</td>
+                <td><code>lista.prepend(0)</code></td>
+            </tr>
+            <tr>
+                <td>Inserir no final</td>
+                <td>O(n)</td>
+                <td><code>lista.append(3)</code></td>
+            </tr>
+            <tr>
+                <td>Remover do início</td>
+                <td>O(1)</td>
+                <td><code>lista.removeFirst()</code></td>
+            </tr>
+            <tr>
+                <td>Remover do final</td>
+                <td>O(n)</td>
+                <td><code>lista.removeLast()</code></td>
+            </tr>
+            <tr>
+                <td>Buscar por valor</td>
+                <td>O(n)</td>
+                <td><code>lista.find(2)</code></td>
+            </tr>
+            <tr>
+                <td>Acesso por índice</td>
+                <td>O(n)</td>
+                <td><code>lista.getAtIndex(1)</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <ul>
+        <h2>Quando Usar Listas Ligadas?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Inserções/remoções frequentes no início ou meio</b> (ex.: histórico de navegação).</li>
+        <li><b>Tamanho desconhecido ou muito variável</b> (evita realocação de arrays).</li>
+        <li><b>Implementação de filas, pilhas ou listas circulares</b>.</li>
+    </ul>
+
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Listas Duplamente Ligadas:</b> Permitem navegação para trás (útil para "voltar/avançar" em navegadores).
+        </li>
+        <li><b>Listas Circulares:</b> Úteis para rodízios de processos ou jogos de turnos.</li>
+        <li><b>Cabeça e Cauda:</b> Mantenha referências para o primeiro e último nós para otimizar
+            <code>append()</code>(O(1)).</li>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em uma caça ao tesouro:</h3>
+        <li>Cada pista (nó) te leva à próxima, mas você não pode pular diretamente para a pista 10 sem passar pelas
+            anteriores.</li>
+    </ul>
+
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Se precisar de <b>acesso aleatório</b> (use arrays).</li>
+        <li>Se a <b>memória for crítica</b> (listas consomem mais por causa dos ponteiros).</li>
+    </ul>
+
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>SEMPRE</b> verifique se <code>next</code> (ou <code>prev</code>) é <code>null</code>
+        antes de acessar para evitar erros!</p>
+</body>
+
+</html>
