@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying sets data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Conjuntos (Sets)</title>
+    <script src="conjuntoSet.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Conjuntos ( Sets )</h1>
+    <p><i>"Conjunto é como um clube exclusivo: só entra quem é único e não se repete!"</i></p>
+    <p style="font-size: 20px;">Um <b>conjunto (Set)</b> é uma estrutura de dados que armazena elementos <b>únicos e não
+            ordenados</b>, sem índices. Ideal para garantir que não haja duplicatas.</p>
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>Unicidade</b>: Não permite elementos repetidos.</li>
+        <li><b>Não ordenado</b>: A ordem de inserção não é preservada.</li>
+        <li><b>Operações matemáticas</b>: Suporta união, interseção e diferença.</li>
+        <li><b>Otimizado para buscas</b>: Verifica a existência de elementos rapidamente. Verifica a existência de
+            elementos em tempo constante (em implementações baseadas em hash).</li>
+    </ol>
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript<br>
+            const set = new Set();<br>
+            set.add(1);<br>
+            set.add(2);<br>
+            set.add(1); // Ignorado (duplicado)<br>
+            console.log(set.has(1)); // true<br>
+            set.delete(2);<br>
+        </code><br><br>
+        <code># Python<br>
+            meu_set = {1, 2, 3}  # ou set([1, 2, 3])<br>
+            meu_set.add(4)<br>
+            meu_set.discard(2)<br>
+            print(3 in meu_set)  # True<br>
+        </code><br><br>
+    </section>
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo em JavaScript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>add()</td>
+                <td>O(1)</td>
+                <td><code>set.add(5)</code></td>
+            </tr>
+            <tr>
+                <td>delete()</td>
+                <td>O(1)</td>
+                <td><code>set.delete(5)</code></td>
+            </tr>
+            <tr>
+                <td>has()</td>
+                <td>O(1)</td>
+                <td><code>set.has(5)</code></td>
+            </tr>
+            <tr>
+                <td>union()</td>
+                <td>O(n + m)</td>
+                <td><code>set1.union(set2)</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><i>Assume implementação com hash tables, como em Python e JavaScript.</i></p>
+    <ul>
+        <h2>Quando Usar Conjuntos ( Set )?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Remover duplicatas</b> de uma lista.</li>
+        <li><b>Verificar existência rápida</b> de elementos (ex.: bloqueio de usuários).</li>
+        <li><b>Operações matemáticas</b> (união/interseção).</li>
+        <li><b>Rastrear itens únicos</b> (ex.: palavras únicas em um texto).</li>
+    </ul>
+
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Converta listas para sets</b> para remover duplicatas:</li>
+        <ul>
+            <p><code>
+                lista = [1, 2, 2, 3]<br>
+                sem_duplicatas = list(set(lista))  # [1, 2, 3]
+            </code></p>
+        </ul>
+        <li><b>Use operações de conjuntos</b> para comparar dados:</li>
+        <ul>
+            <p><code>
+                const admins = new Set(["Alice", "Bob"]);<br>
+                const users = new Set(["Alice", "Charlie"]);<br>
+                const adminsComuns = new Set([...admins].filter(x => users.has(x))); // {"Alice"}
+            </code></p>
+        </ul>
+        <li><b>Sets com objetos</b>: Em JavaScript, use propriedades únicas (ex.: IDs), pois objetos são comparados por
+            referência.</li>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em um cartão de visitas digital:</h3>
+        <li>Você pode adicionar muitos contatos, mas cada e-mail só aparece uma vez.</li>
+        <li>Não importa a ordem em que foram adicionados.</li>
+    </ul>
+
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Se precisar de <b>ordem</b> (use arrays/listas).</li>
+        <li>Se precisar de <b>acesso por índice</b> (use arrays/listas).</li>
+    </ul>
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>Em JavaScript</b>, <code>Set </code>não tem método para acesso direto por índice. Use
+        <code>Array.from(set)[0]</code> se necessário.</p>
+</body>
+
+</html>
