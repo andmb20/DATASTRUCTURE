@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying map data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Dicionarios (Maps/HashMaps)</title>
+    <script src="mapHashmap.js"></script>
+</head>
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Dicionários (Maps/HashMaps)</h1>
+    <p><i>"Dicionário é como um livro de contatos: você busca um nome (chave) e encontra seu telefone (valor)!" 📖➡️📞</i></p>
+    <p style="font-size: 20px;">Um <b>dicionário (Map/HashMap)</b> é uma estrutura de dados que armazena pares <b>chave-valor</b>, onde cada chave única mapeia para um valor. Ideal para buscas rápidas e associações.</p>
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>Chaves Únicas</b>: Não permite duplicatas (como um <code>Set</code> para chaves).</li>
+        <li><b>Acesso Rápido</b>: Busca por chave em tempo constante <b>O(1)</b> em implementações baseadas em hash.</li>
+        <li><b>Não Ordenado</b>: A ordem de inserção não é garantida (exceto em <code>OrderedDict</code> no <code>Python</code> ou <code>Map</code> moderno no <code>JS</code>).</li>
+        <li><b>Flexível</b>: Chaves e valores podem ser de qualquer tipo (em linguagens dinâmicas).</li>
+    </ol>
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript<br>
+            const mapa = new Map();<br>
+            mapa.set("nome", "Alice");  // Adiciona chave-valor<br>
+            mapa.set("idade", 25);<br>
+            console.log(mapa.get("nome")); // "Alice"<br>
+            mapa.delete("idade");<br>
+            console.log(mapa.has("nome")); // true<br>
+        </code><br><br>
+        <code># Python<br>
+            dicionario = {"nome": "Alice", "idade": 25}<br>
+            dicionario["pais"] = "Brasil"  # Adiciona chave-valor<br>
+            print(dicionario["nome"])  # "Alice"<br>
+            del dicionario["idade"]<br>
+            print("pais" in dicionario)  # True<br>
+        </code><br><br>
+    </section>
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Complexidade</th>
+                <th>Exemplo em JavaScript</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>inserir</td>
+                <td>O(1)</td>
+                <td><code>map.set("chave", valor)</code></td>
+            </tr>
+            <tr>
+                <td>buscar</td>
+                <td>O(1)</td>
+                <td><code>map.get("chave")</code></td>
+            </tr>
+            <tr>
+                <td>remover</td>
+                <td>O(1)</td>
+                <td><code>map.delete("chave")</code></td>
+            </tr>
+            <tr>
+                <td>atualizar</td>
+                <td>O(1)</td>
+                <td><code>map.set("chave", novoValor)</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><i>(Assumindo implementação com hash tables, como em <code>Map</code> do JS e <code>dict</code> do Python.)</i></p>
+    <ul>
+        <h2>Quando Usar Dicionários?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Bancos de dados simples</b>: Armazenar usuários por ID.</li>
+        <li><b>Contagens frequentes</b>: Ex.: frequência de palavras em um texto.</li>
+        <li><b>Cache rápido</b>: Armazenar resultados de funções caras (memoização).</li>
+        <li><b>Substituir switch-case</b>: Mapear chaves a funções.</li>
+    </ul>
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Memoização</b>:</li>
+        <ul>
+            <p><code>
+                const cache = new Map();<br>
+                function fib(n) {<br>
+                    if (cache.has(n)) return cache.get(n);<br>
+                    if (n &lt;= 1) return n;<br>
+                    cache.set(n, fib(n - 1) + fib(n - 2));<br>
+                    return cache.get(n);<br>
+                }<br>
+            </code></p>
+        </ul>
+        <li><b>Agrupar dados</b>:</li>
+        <ul>
+            <p><code>
+                palavras = ["maçã", "banana", "morango"]<br>
+                grupo = {len(p): p for p in palavras}  # {5: 'maçã', 6: 'banana', 7: 'morango'}
+            </code></p>
+        </ul>
+        <li><b>Sets com objetos</b>: Em JavaScript, use propriedades únicas (ex.: IDs), pois objetos são comparados por
+            referência.</li>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em um cardápio de restaurante:</h3>
+        <li>Você procura pelo <b>nome do prato (chave)</b> e encontra seu <b>preço (valor)</b>.</li>
+        <li>Não importa a ordem dos pratos no cardápio, apenas que cada nome seja único!</li>
+    </ul>
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Se precisar de <b>ordem garantida</b> (use <code>OrderedDict</code> ou <code>Map</code> moderno).</li>
+        <li>Se o <b>número de chaves for pequeno</b> (um array/lista pode ser mais eficiente).</li>
+    </ul>
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>Para iterar sobre chaves e valores simultaneamente</b> em JavaScript, prefira <code>map.entries()</code> em vez de <code>map.keys()</code> ou <code>map.values()</code> separadamente.</p>
+</body>
+</html>
