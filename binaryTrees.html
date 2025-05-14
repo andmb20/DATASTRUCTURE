@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying binary trees data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Árvores Binárias (Binary Trees)</title>
+    <script src="binaryTrees.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Árvores Binárias (Binary Trees)</h1>
+    <p><i>"Árvore binária é como uma árvore genealógica onde cada pessoa tem no máximo dois filhos!"👧👦</i></p>
+    <p style="font-size: 20px;">Uma <b>árvore binária</b> é uma estrutura de dados hierárquica onde cada nó possui: um <b>valor (dado)</b> e até dois <b>filhos</b> (esquerda e direita). Ideal para representar hierarquias e realizar buscas eficientes.</p>
+
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>Raiz (Root)</b>: Nó superior da árvore (único).</li>
+        <li><b>Folhas (Leaves)</b>: Nós sem filhos.</li>
+        <li><b>Altura (Height)</b>: Número de níveis da raiz até a folha mais distante.</li>
+        <li><b>Tipos Especiais</b>:</li>
+        <ul>
+            <li><b>Árvore Binária de Busca (BST)</b>: Valores à esquerda ≤ pai ≤ valores à direita.</li>
+            <li><b>Árvore Balanceada</b>: Altura das subárvores difere em no máximo 1 (ex.: AVL, Red-Black).</li>
+        </ul>
+
+    </ol>
+
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript<br>
+            class Node {<br>
+                constructor(value) {<br>
+                    this.value = value;<br>
+                    this.left = null;<br>
+                    this.right = null;<br>
+                }<br>
+            }<br>
+            const root = new Node(10);<br>
+            root.left = new Node(5);<br>
+            root.right = new Node(15);<br>
+        </code><br><br>
+
+        <code># Python<br>
+            class Node:<br>
+                def __init__(self, value):<br>
+                    self.value = value<br>
+                    self.left = None<br>
+                    self.right = None<br>
+            root = Node(10)<br>
+            root.left = Node(5)<br>
+            root.right = Node(15)<br>
+        </code><br><br>
+    </section>
+
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>BST Balanceada</th>
+                <th>BST Desbalanceada</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Busca</td>
+                <td>O(log n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Inserção</td>
+                <td>O(log n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Remoção</td>
+                <td>O(log n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Travessia</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><i>(A complexidade depende do balanceamento da árvore.)</i></p>
+
+    <ul>
+        <h2>Quando Usar Árvores Binárias?</h2>
+        <h3>Casos Ideais:</h3>
+        <li><b>Busca eficiente</b>: Em BSTs, busca em O(log n) (se balanceada).</li>
+        <li><b>Hierarquias</b>: Sistemas de arquivos, organogramas.</li>
+        <li><b>Expressões matemáticas</b>: Árvores de sintaxe.</li>
+        <li><b>Algoritmos de compressão</b>: Huffman coding.</li>
+    </ul>
+
+
+
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Balanceamento Automático</b>: Use AVL ou Red-Black Trees para manter O(log n).</li>
+        <li><b>Travessias:</b></li>
+        <ul>
+            <li><code>Pré-ordem (DFS): Raiz → Esquerda → Direita (útil para copiar árvores).</code></li>
+            <li><code>Em-ordem (DFS): Esquerda → Raiz → Direita (retorna valores ordenados em BSTs).</code></li>
+            <li><code>Pós-ordem (DFS): Esquerda → Direita → Raiz (útil para deletar árvores).</code></li>
+            <li><code>Nível a nível (BFS): Usa fila (útil para buscar a altura).</code></li>
+        </ul>
+        <li><b>BST Iterativa</b>: Evite recursão para evitar estouro de pilha em árvores muito profundas.</li>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em um quiz de "sim ou não":</h3>
+
+        <li>Cada pergunta (nó) tem duas respostas possíveis (esquerda = <b>não</b>, direita = <b>sim</b>). O caminho até a resposta final é como percorrer a árvore!</li>
+    </ul>
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Dados <b>não hierárquicos</b> ou <b>sequenciais</b> (use listas/arrays).</li>
+        <li>Se a árvore ficar <b>desbalanceada</b> (pode degenerar para O(n)).</li>
+    </ul>
+
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>SEMPRE</b> verifique se a árvore está balanceada após inserções/remoções frequentes. Caso contrário, degrade para O(n)!</p>
+</body>
+
+</html>
