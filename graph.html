@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="This repository is dedicated to studying graphs data structures, exploring their principles, operations, and practical applications in programming.">
+    <title>Grafos (Graphs)</title>
+    <script src="graph.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Voltar</a>
+    <br><br>
+    <h1>Grafos (Graphs)</h1>
+    <p><i>"Grafo é uma rede de conexões onde pontos (vértices) são ligados por linhas (arestas), como uma teia de relacionamentos!" 🕸️</i></p>
+    <p style="font-size: 20px;">Um <b>grafo</b> é uma estrutura não-linear composta por <b>vértices</b> (entidades → Ex.: pessoas, cidades) e <b>arestas</b> (conexões entre os vértices → Ex.: amizades, estradas). Essa estrutura é usada para representar relacionamentos e otimizar conexões.</p>
+
+    <ol>
+        <h2>Características Principais</h2>
+        <li><b>Vértices (V)</b>: Entidades que representam pontos (ex.: pessoas, cidades).</li>
+        <li><b>Arestas (E)</b>: Conexões entre vértices (ex.: amizades, estradas).</li>
+        <li><b>Tipos Especiais</b>:</li>
+        <ul>
+            <li><b>Direcionado</b>: Arestas têm sentido (ex.: A → B ≠ B → A).</li>
+            <li><b>Não-Direcionado</b>: Arestas são bidirecionais (ex.: A — B = B — A).</li>
+            <li><b>Ponderado</b>: Arestas têm pesos (ex.: distância entre cidades).</li>
+            <li><b>Cíclico/Acíclico</b>: Contém ou não ciclos (caminhos que voltam ao início).</li>
+        </ul>
+    </ol>
+
+    <section>
+        <h2>Exemplos em Diferentes Linguagens</h2>
+        <code>// JavaScript - Lista de Adjacência<br>
+            const graph = {<br>
+                A: ["B", "C"], // A → B e A → C<br>
+                B: ["A", "D"], // B → A e B → D<br>
+                C: ["A"],<br>
+                D: ["B"]<br>
+            };<br>
+        </code><br><br>
+
+        <code># Python - Usando NetworkX<br>
+            import networkx as nx<br>
+            G = nx.Graph()  # Não-direcionado<br>
+            G.add_edge("A", "B")  # A — B<br>
+            G.add_edge("B", "C", weight=5)  # B —5— C<br>
+        </code><br><br>
+
+        <code>// Java - Matriz de Adjacência<br>
+            int[][] graph = new int[4][4];<br>
+            graph[0][1] = 1;  // A → B<br>
+            graph[1][0] = 1;  // B → A (não-direcionado)<br>
+        </code><br><br>
+    </section>
+
+    <h2>Complexidade das Operações</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Operação</th>
+                <th>Lista de Adjacência</th>
+                <th>Matriz de Adjacência</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Adicionar vértice</td>
+                <td>O(1)</td>
+                <td>O(V²)</td>
+            </tr>
+            <tr>
+                <td>Adicionar aresta</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Remover aresta</td>
+                <td>O(E)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Buscar vizinhos</td>
+                <td>O(1)</td>
+                <td>O(V)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><i>(O desempenho depende da representação escolhida.)</i></p>
+
+    <ul>
+        <h2>Quando Usar Grafos?</h2>
+        <h3>✔ Casos Ideais:</h3>
+        <li><b>Redes sociais</b>: Usuários como vértices e amizades como arestas.</li>
+        <li><b>Sistemas de navegação</b>: Locais como vértices e rotas como arestas.</li>
+        <li><b>Recomendações</b>: Produtos conectados por compras conjuntas.</li>
+        <li><b>Circuitos elétricos ou fluxo de dados</b>: Estruturas complexas de relacionamento.</li>
+    </ul>
+
+
+
+    <ol>
+        <h2>Dicas de Uso Avançado</h2>
+        <li><b>Representações:</b></li>
+        <ul>
+            <li><b>Lista de adjacência</b>: Melhor para grafos esparsos (poucas arestas).</li>
+            <li><b>Matriz de adjacência</b>: Melhor para grafos densos (muitas arestas).</li>
+        </ul>
+        <li><b>Algoritmos Clássicos:</b></li>
+        <ul>
+            <li><code>DFS (Depth-First Search)</code>: Explora até o fundo antes de retroceder.</li>
+            <li><code>BFS (Breadth-First Search)</code>: Explora por níveis (ideal para caminhos mais curtos).</li>
+            <li><code>Dijkstra</code>: Menor caminho em grafos ponderados sem pesos negativos.</li>
+        </ul>
+        <li><b>Bibliotecas Úteis:</b></li>
+        <ul>
+            <li><b>Python</b>: networkx, igraph.</li>
+            <li><b>JavaScript</b>: vis.js, cytoscape.js.</li>
+        </ul>
+    </ol>
+
+    <ul>
+        <h2>Analogia Prática</h2>
+        <h3>Pense em um mapa de metrô:</h3>
+        <li><b>Vértices</b>: Estações.</li>
+        <li><b>Arestas</b>: Trilhos conectando estações.</li>
+        <li><b>Pesos</b>: Tempo entre estações.</li>
+    </ul>
+
+    <ul>
+        <h3>Quando NÃO Usar:</h3>
+        <li>Dados <b>hierárquicos simples</b> (use árvores).</li>
+        <li>Dados <b>sequenciais</b> (use listas).</li>
+        <li>Quando a relação entre dados é <b>trivial</b> (ex.: lista de tarefas).</li>
+    </ul>
+
+    <h2>Dica Importante</h2>
+    <p style="font-size: 20px;"><b>Para grafos muito grandes</b>, considere estruturas especializadas como CSR (Compressed Sparse Row) ou use bibliotecas otimizadas (ex.: GraphX no Apache Spark).</p>
+
+    <h2>Por Que Grafos?</h2>
+    <p>Grafos modelam o mundo real:</p>
+    <ul>
+        <li>Internet (<b>vértices</b> = páginas, <b>arestas</b> = links).</li>
+        <li>Neurônios no cérebro.</li>
+        <li>Logística (otimização de rotas).</li>
+        <p><b><i>Grafos são a estrutura secreta por trás de quase tudo na computação!</i></b></p>
+    </ul>
+</body>
+
+</html>
