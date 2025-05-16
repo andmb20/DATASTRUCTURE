@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATA STRUCTURES</title>
+</head>
+
+<body>
+    <a href="index.html">Inicio</a>
+    <h1>RESUMO</h1>
+    <p><a href="array.html">Arrays, </a>
+        <a href="stack.html">Pilhas, </a>
+        <a href="fila.html">Filas </a>podem ser implementados com arrays nativos ou classes.
+    </p>
+    <p><a href="linkedlist.html">Listas Ligadas, </a>
+        <a href="binaryTrees.html">Árvores, </a>
+        <a href="graph.html">Grafos </a>geralmente usam classes com nós.
+    </p>
+    <p><a href="linkedlist.html">Conjuntos (Set), </a>
+        <a href="graph.html">Dicionários (Map) </a>já têm implementações prontas em JavaScript.
+    </p>
+    <h2>Arrays (Vetores)</h2>
+    <p>Em JavaScript, arrays são listas ordenadas que podem guardar vários valores (de qualquer tipo). Eles são dinâmicos (crescem e diminuem automaticamente).</p>
+    <code>
+        let frutas = ["maçã", "banana", "laranja"]; // Criando um array <br>
+        frutas.push("uva"); // Adiciona no final<br>
+        frutas.pop(); // Remove do final<br>
+    </code>
+    <h2>Pilhas (Stacks)</h2>
+    <p>Pilhas seguem o princípio <b>LIFO (Last In, First Out)</b>. Podemos criar uma pilha usando um array ou uma classe.</p>
+    <p><b>Usando Array</b>:</p>
+    <code>
+        let pilha = [];<br>
+        pilha.push(1); // Empilha<br>
+        pilha.push(2);<br>
+        let topo = pilha.pop(); // Desempilha (2)
+    </code>
+    <p><b>Usando Classe</b>:</p>
+    <code>
+        class Pilha {<br>
+        &emsp;&emsp;constructor() {<br>
+        &emsp;&emsp;&emsp;&emsp;this.itens = [];<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;empilhar(item) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.itens.push(item);<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;desempilhar() {<br>
+        &emsp;&emsp;&emsp;&emsp;return this.itens.pop();<br>
+        &emsp;&emsp;}<br>
+        }<br>
+    </code>
+    <h2>Filas (Queues)</h2>
+    <p>Filas seguem o princípio <b>FIFO (First In, First Out)</b> Podemos criar uma fila usando um array ou uma classe.</p>
+    <p><b>Usando Array</b>:</p>
+    <code>
+        let fila = [];<br>
+        fila.push(1); // Enfileira<br>
+        fila.push(2);<br>
+        let primeiro = fila.shift(); // Desenfileira (1)<br>
+    </code>
+    <p><b>Usando Classe</b>:</p>
+    <code>
+        class Fila {<br>
+        &emsp;&emsp;constructor() {<br>
+        &emsp;&emsp;&emsp;&emsp;this.itens = [];<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;enfileirar(item) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.itens.push(item);<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;desenfileirar() {<br>
+        &emsp;&emsp;&emsp;&emsp;return this.itens.shift();<br>
+        &emsp;&emsp;}<br>
+        }<br>
+    </code>
+    <h2>Listas Ligadas (Linked Lists)</h2>
+    <p>Cada elemento (nó) tem um valor e um ponteiro para o próximo nó</p>
+    <code>
+        class No {<br>
+        &emsp;&emsp;constructor(valor) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.valor = valor;<br>
+        &emsp;&emsp;&emsp;&emsp;this.proximo = null;<br>
+        &emsp;&emsp;}<br>
+        }<br>
+<br>
+        class ListaLigada {<br>
+        &emsp;&emsp;constructor() {<br>
+        &emsp;&emsp;&emsp;&emsp;this.cabeca = null;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;adicionar(valor) {<br>
+        &emsp;&emsp;&emsp;&emsp;let no = new No(valor);<br>
+        &emsp;&emsp;&emsp;&emsp;if (!this.cabeca) {<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;this.cabeca = no;<br>
+        &emsp;&emsp;&emsp;&emsp;} else {<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;let atual = this.cabeca;<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;while (atual.proximo) {<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;atual = atual.proximo;<br>
+        &emsp;&emsp;&emsp;&emsp;}<br>
+        &emsp;&emsp;&emsp;&emsp;atual.proximo = no;<br>
+        &emsp;&emsp;&emsp;&emsp;}<br>
+        &emsp;&emsp;}<br>
+        }<br>
+    </code>
+    <h2>Conjuntos (Sets)</h2>
+    <p>São coleções de valores <b>únicos</b> (sem repetições).</p>
+    <code>
+        let conjunto = new Set();<br>
+        conjunto.add(1);<br>
+        conjunto.add(2);<br>
+        conjunto.add(1); // Não adiciona repetido<br>
+        console.log(conjunto.has(1)); // true<br>
+    </code>
+    <h2>Dicionários (Objetos e Maps)</h2>
+    <p>Armazenam pares <b>chave-valor</b>.</p>
+    <p><b>Usando Objeto</b>:</p>
+    <code>
+        let dicionario = { nome: "João", idade: 12 };<br>
+        console.log(dicionario.nome); // "João"<br>
+    </code>
+    <p><b>Usando Map (melhor para chaves dinâmicas)</b>:</p>
+    <code>
+        let mapa = new Map();<br>
+        mapa.set("nome", "Maria");<br>
+        mapa.set("idade", 12);<br>
+        console.log(mapa.get("nome")); // "Maria"<br>
+    </code>
+    <h2>Árvores (Trees)</h2>
+    <p>Estrutura hierárquica com nós (pai e filhos).</p>
+    <code>
+        class NoArvore {<br>
+        &emsp;&emsp;constructor(valor) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.valor = valor;<br>
+        &emsp;&emsp;&emsp;&emsp;this.esquerda = null;<br>
+        &emsp;&emsp;&emsp;&emsp;this.direita = null;<br>
+        &emsp;&emsp;}<br>
+        }<br>
+<br>
+        let raiz = new NoArvore(10);<br>
+        raiz.esquerda = new NoArvore(5);<br>
+        raiz.direita = new NoArvore(15);<br>
+    </code>
+    <h2>Grafos (Graphs)</h2>
+    <p>Conjunto de nós conectados por arestas.</p>
+    <code>
+        class Grafo {<br>
+        &emsp;&emsp;constructor() {<br>
+        &emsp;&emsp;&emsp;&emsp;this.vertices = new Map(); // Chave: nó, Valor: lista de adjacências<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;adicionarVertice(vertice) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.vertices.set(vertice, []);<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;adicionarAresta(origem, destino) {<br>
+        &emsp;&emsp;&emsp;&emsp;this.vertices.get(origem).push(destino);<br>
+        &emsp;&emsp;&emsp;&emsp;this.vertices.get(destino).push(origem); // Para grafos não direcionados<br>
+        &emsp;&emsp;}<br>
+        }<br>
+    </code>
+</body>
+
+</html>
